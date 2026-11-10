@@ -10,8 +10,8 @@ const CONFIG = {
   telefono: '',
   whatsapp: '',
   email: '',
-  indirizzo: '',
-  mappaUrl: '',
+  indirizzo: 'Via Arnolfo di Cambio 14, 37138 Verona VR',
+  mappaUrl: 'https://www.google.com/maps/search/?api=1&query=Via%20Arnolfo%20di%20Cambio%2014%2C%2037138%20Verona',
   orari: '',
   instagram: '',
   facebook: ''
