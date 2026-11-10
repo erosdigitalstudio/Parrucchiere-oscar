@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parrucchiere Oscar</title>
+<meta name="description" content="Parrucchiere Oscar: taglio, colore, piega e cura dei capelli, con attenzione a ogni dettaglio.">
+<meta name="theme-color" content="#2b1620">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232b1620'/%3E%3Ctext x='32' y='45' font-size='40' text-anchor='middle' fill='%23b8955a' font-family='serif'%3EO%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenuto">Vai al contenuto</a>
+
+<header class="site-header" id="top">
+  <a class="brand" href="#home" aria-label="Parrucchiere Oscar, torna alla home">
+    <span class="brand-name">Oscar</span><span class="brand-sub">Parrucchiere</span>
+  </a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
+    <span></span><span></span>
+  </button>
+  <nav id="menu" class="nav" aria-label="Principale">
+    <a href="#home">Home</a>
+    <a href="#salone">Il Salone</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#prenotazioni">Prenotazioni</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+</header>
+
+<main id="contenuto">
+
+<section class="hero" id="home">
+  <div class="hero-media" data-img="assets/hero.jpg" role="img" aria-label="Il salone Parrucchiere Oscar"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker">Parrucchiere</p>
+    <h1 class="wordmark"><span>Oscar</span></h1>
+    <span class="cut" aria-hidden="true"></span>
+    <p class="hero-lead">Taglio, colore e cura dei capelli, pensati intorno a chi si siede in poltrona.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#prenotazioni">Prenota un appuntamento</a>
+      <a class="btn btn-line" href="#servizi">Scopri i servizi</a>
+    </div>
+  </div>
+</section>
+
+<section class="section light" id="salone">
+  <div class="wrap split">
+    <div data-reveal>
+      <h2>Un salone dove il tempo è dedicato a te</h2>
+      <p>Parrucchiere Oscar nasce da un'idea semplice: un buon taglio parte dall'ascolto. Prima di prendere in mano le forbici, ci si ferma a capire come vivi i tuoi capelli, che cosa ti piace e che cosa vuoi cambiare.</p>
+      <p>Ogni lavoro è costruito sulla forma del viso, sulla natura del capello e sulla vita di tutti i giorni, perché il risultato deve funzionare anche a casa, non solo davanti allo specchio.</p>
+      <dl class="values">
+        <div><dt>Ascolto</dt><dd>Una consulenza prima di ogni servizio, senza fretta.</dd></div>
+        <div><dt>Precisione</dt><dd>Tecnica e cura dei dettagli, dal primo taglio all'ultima piega.</dd></div>
+        <div><dt>Cura</dt><dd>Prodotti e trattamenti scelti per la salute del capello.</dd></div>
+      </dl>
+    </div>
+    <figure class="portrait" data-reveal>
+      <div class="portrait-img" data-img="assets/salone.jpg" role="img" aria-label="Interno del salone"></div>
+    </figure>
+  </div>
+</section>
+
+<section class="section dark" id="servizi">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <h2>Servizi</h2>
+      <p>Ogni servizio comincia con una consulenza. Per sapere cosa è disponibile e come organizzare la seduta, scrivi o passa in salone.</p>
+    </div>
+    <ul class="services">
+      <li data-reveal><h3>Taglio</h3><p>Un taglio disegnato sulla struttura del viso e sulla texture del capello, facile da gestire nei giorni normali.</p></li>
+      <li data-reveal><h3>Colore</h3><p>Tinte, riflessi e schiariture costruiti sul tuo tono di partenza, con attenzione all'equilibrio e alla luminosità.</p></li>
+      <li data-reveal><h3>Piega e styling</h3><p>Una piega curata per la giornata di tutti i giorni o per un'occasione speciale.</p></li>
+      <li data-reveal><h3>Trattamenti</h3><p>Percorsi di cura per capelli secchi, sfibrati o stressati, per ritrovare morbidezza e forza.</p></li>
+      <li data-reveal><h3>Consulenza di immagine</h3><p>Un momento di confronto per scegliere insieme un cambio di look misurato e coerente con te.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section light" id="gallery">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <h2>Gallery</h2>
+      <p>Alcuni momenti dal salone. Tocca un'immagine per ingrandirla.</p>
+    </div>
+    <div class="grid" id="galleryGrid"></div>
+    <p class="empty" id="galleryEmpty" hidden>La galleria sarà disponibile a breve.</p>
+  </div>
+</section>
+
+<dialog class="lightbox" id="lightbox" aria-label="Immagine ingrandita">
+  <button class="lb-btn lb-close" data-lb="close" aria-label="Chiudi">&times;</button>
+  <button class="lb-btn lb-prev" data-lb="prev" aria-label="Immagine precedente">&#8249;</button>
+  <img alt="" id="lbImg">
+  <button class="lb-btn lb-next" data-lb="next" aria-label="Immagine successiva">&#8250;</button>
+</dialog>
+
+<section class="section dark" id="prenotazioni">
+  <div class="wrap split">
+    <div class="head" data-reveal>
+      <h2>Prenota il tuo appuntamento</h2>
+      <p>Compila la richiesta: il messaggio viene preparato per te e inviato al salone, che ti confermerà giorno e orario.</p>
+    </div>
+    <form class="form" id="bookingForm" novalidate data-reveal>
+      <label>Nome e cognome
+        <input type="text" name="nome" autocomplete="name" required>
+      </label>
+      <label>Servizio
+        <select name="servizio" required>
+          <option value="">Scegli un servizio</option>
+          <option>Taglio</option>
+          <option>Colore</option>
+          <option>Piega e styling</option>
+          <option>Trattamenti</option>
+          <option>Consulenza di immagine</option>
+        </select>
+      </label>
+      <div class="row">
+        <label>Giorno preferito
+          <input type="date" name="data" id="dateField" required>
+        </label>
+        <label>Fascia oraria
+          <select name="fascia" required>
+            <option value="">Scegli</option>
+            <option>Mattina</option>
+            <option>Pomeriggio</option>
+          </select>
+        </label>
+      </div>
+      <label>Note (facoltative)
+        <textarea name="note" rows="3"></textarea>
+      </label>
+      <button class="btn btn-solid" type="submit">Invia la richiesta</button>
+      <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="section light" id="contatti">
+  <div class="wrap split">
+    <div class="head" data-reveal>
+      <h2>Contatti</h2>
+      <p>Scrivici o passa a trovarci: saremo felici di accoglierti.</p>
+    </div>
+    <div data-reveal>
+      <ul class="contacts" id="contactList"></ul>
+      <p class="empty" id="contactEmpty" hidden>Le informazioni di contatto saranno pubblicate a breve.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year">2026</span> Parrucchiere Oscar</p>
+  <a href="#top">Torna in alto</a>
+</footer>
+</body>
+</html>

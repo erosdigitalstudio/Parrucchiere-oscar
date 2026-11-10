@@ -1,0 +1,11 @@
+IMMAGINI DEL SITO - Parrucchiere Oscar
+Copia qui i file con QUESTI nomi esatti (formato JPG, consigliato sotto 400 KB ciascuno).
+Se un file manca, il sito mostra un fondo elegante al suo posto: nessun errore.
+
+hero.jpg        Foto verticale o quadrata per la prima schermata (consigliato 1400x1800 px)
+salone.jpg      Foto dell'interno del salone, formato verticale 3:4 (consigliato 1200x1600 px)
+gallery-1.jpg   Foto della galleria, formato 4:5 (consigliato 1000x1250 px)
+gallery-2.jpg   ... fino a ...
+gallery-9.jpg   (usa quante ne servono, a partire da 1 senza saltare numeri)
+
+Usa solo foto di cui possiedi i diritti.
