@@ -244,3 +244,86 @@ h2{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:1.5rem;max-width:16ch}
  .salon-copy h2{font-size:clamp(2.25rem,8vw,3.3rem)}
  .salon-eyebrow{margin-bottom:1rem}
 }
+
+/* IL SALONE - VERSIONE COMPATTA */
+
+.salon-compact {
+  padding: 65px 5%;
+}
+
+.salon-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.salon-visual {
+  margin: 0;
+}
+
+.salon-visual img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+}
+
+.salon-visual figcaption {
+  font-size: 11px;
+  color: #756b62;
+  margin-top: 8px;
+}
+
+.salon-eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #a17e55;
+  margin-bottom: 22px;
+}
+
+.salon-copy h2 {
+  font-size: clamp(36px, 4vw, 60px);
+  margin-bottom: 22px;
+  max-width: 420px;
+}
+
+.salon-copy > p {
+  max-width: 440px;
+}
+
+.salon-tags {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #a17e55;
+  margin-top: 25px;
+}
+
+.salon-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #29241f;
+  text-decoration: none;
+  border-bottom: 1px solid #a17e55;
+  padding-bottom: 5px;
+}
+
+/* SMARTPHONE */
+
+@media (max-width: 700px) {
+  .salon-compact {
+    padding: 55px 6%;
+  }
+
+  .salon-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .salon-visual img {
+    height: 300px;
+  }
+
+  .salon-copy h2 {
+    font-size: 38px;
+  }
+}
