@@ -392,3 +392,10 @@ h2{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:1.5rem;max-width:16ch}
 .footer-bottom p{margin:0}
 @media(max-width:800px){.contact-heading{display:block}.contact-heading>p{margin-top:1.4rem}.contact-layout{grid-template-columns:1fr}.contact-visual{min-height:350px}}
 @media(max-width:520px){.contact-heading h2{font-size:clamp(2.7rem,10vw,3.8rem)}.contact-phone{font-size:clamp(1.8rem,8vw,2.6rem)}.contact-visual{min-height:310px;padding:1.5rem}.contact-visual::before{inset:.7rem}.footer-main{flex-direction:column}.footer-bottom{flex-direction:column;gap:.5rem}}
+
+/* Orari di apertura nella sezione contatti */
+.contact-hours{margin:0;display:grid;gap:.6rem}
+.contact-hours>div{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.contact-hours dt{font-size:.98rem;color:#62574d}
+.contact-hours dd{margin:0;font-weight:500;text-align:right;white-space:nowrap}
+@media(max-width:400px){.contact-hours>div{flex-direction:column;gap:0}.contact-hours dd{text-align:left}}
