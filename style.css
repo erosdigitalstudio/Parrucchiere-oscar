@@ -327,3 +327,25 @@ h2{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:1.5rem;max-width:16ch}
     font-size: 38px;
   }
 }
+
+/* Servizi · quattro schede editoriali responsive */
+.services-editorial{padding-block:clamp(4rem,8vw,7rem)}
+.services-intro{display:flex;align-items:end;justify-content:space-between;gap:3rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.services-eyebrow{font-size:.72rem;letter-spacing:.24em;color:#c6a27b;font-weight:500;margin-bottom:1.25rem}
+.services-intro h2{font-size:clamp(2.8rem,5.5vw,5.4rem);max-width:none;margin:0;line-height:1.07}
+.services-intro h2 em{font-weight:400;color:#c6a27b}
+.services-intro>p{max-width:34ch;color:#e2d9d0;margin:0;font-size:1rem;line-height:1.7}
+.services-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(251,248,243,.24);border:1px solid rgba(251,248,243,.24)}
+.service-card{background:var(--ink);padding:clamp(1.25rem,2.5vw,2rem);min-width:0;transition:background .3s}
+.service-card:hover{background:#352e27}
+.service-index{display:block;font-size:.72rem;letter-spacing:.15em;color:#c6a27b;margin-bottom:2.5rem}
+.service-card h3{font-size:clamp(1.5rem,2.1vw,2.15rem);line-height:1.2;min-height:2.4em;margin-bottom:.7rem}
+.service-card>p{font-size:.9rem;color:#d8cfc5;min-height:3em;line-height:1.5}
+.service-card ul{list-style:none;padding:1.2rem 0 0;margin:1.5rem 0 0;border-top:1px solid rgba(251,248,243,.2)}
+.service-card li{font-size:.92rem;color:#f0e9e1;line-height:1.5;padding:.35rem 0}
+.service-card li::before{content:"—";color:#c6a27b;margin-right:.65rem}
+.services-bottom{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-top:2.5rem}
+.services-bottom p{margin:0;color:#e2d9d0;max-width:40ch}
+@media(max-width:1000px){.services-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.service-card h3,.service-card>p{min-height:0}.service-index{margin-bottom:1.5rem}}
+@media(max-width:700px){.services-intro{display:block}.services-intro>p{margin-top:1.5rem}.services-bottom{align-items:flex-start;flex-direction:column}}
+@media(max-width:480px){.services-cards{grid-template-columns:1fr}.service-card{padding:1.5rem}.service-index{margin-bottom:.75rem}.service-card ul{margin-top:1rem}.services-intro h2{font-size:clamp(2.5rem,10vw,3.5rem)}}
