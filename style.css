@@ -222,3 +222,25 @@ h2{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:1.5rem;max-width:16ch}
 .tile:focus-visible{outline:3px solid var(--brass);outline-offset:4px}
 .gallery-disclaimer{margin-top:2.5rem;font-size:.82rem;color:var(--muted);max-width:65ch;line-height:1.6}
 @media(max-width:520px){.gallery-disclaimer{margin-top:1.5rem}}
+
+/* Sezione Il Salone: editoriale, compatta e orientata alle immagini */
+.salon-compact{padding-block:clamp(3.5rem,7vw,6rem)}
+.salon-layout{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1fr);align-items:center;gap:clamp(2rem,6vw,6rem)}
+.salon-visual{margin:0;position:relative;max-width:480px}
+.salon-visual img{display:block;width:100%;height:clamp(290px,35vw,430px);object-fit:cover;object-position:center}
+.salon-visual figcaption{font-size:.68rem;color:var(--muted);line-height:1.5;margin-top:.55rem}
+.salon-copy{max-width:490px}
+.salon-eyebrow{font-size:.72rem;letter-spacing:.24em;color:var(--brass);font-weight:500;margin:0 0 1.5rem}
+.salon-copy h2{font-size:clamp(2.3rem,4.5vw,4.2rem);max-width:13ch;margin:0 0 1.5rem}
+.salon-copy>p:not(.salon-eyebrow):not(.salon-tags){font-size:1.06rem;max-width:39ch;color:#62574d;line-height:1.7;margin-bottom:1.7rem}
+.salon-tags{font-size:.72rem;letter-spacing:.15em;font-weight:500;color:#846c51;margin:0 0 1.6rem}
+.salon-tags span{margin-inline:.45rem}
+.salon-link{font-size:.92rem;font-weight:500;text-decoration:none;border-bottom:1px solid var(--brass);padding-bottom:.35rem}
+.salon-link:hover{color:#80694d}
+@media(max-width:700px){
+ .salon-layout{grid-template-columns:1fr;gap:2rem}
+ .salon-visual{max-width:none}
+ .salon-visual img{height:clamp(250px,65vw,380px)}
+ .salon-copy h2{font-size:clamp(2.25rem,8vw,3.3rem)}
+ .salon-eyebrow{margin-bottom:1rem}
+}
