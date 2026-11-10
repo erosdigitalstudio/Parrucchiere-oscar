@@ -78,8 +78,8 @@ h2{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:1.5rem;max-width:16ch}
 .services{list-style:none;margin:0;padding:0;border-top:1px solid rgba(248,243,239,.2)}
 .services li{display:grid;grid-template-columns:1fr 1.2fr;gap:1.5rem;padding:2rem 0;border-bottom:1px solid rgba(248,243,239,.2);transition:padding-left .5s var(--ease)}
 .services li:hover{padding-left:1.25rem}
-.services h3{font-size:clamp(1.6rem,3.4vw,2.4rem);transition:color .4s,font-style .4s}
-.services li:hover h3{color:var(--brass);font-style:italic}
+.services h3{font-size:clamp(1.6rem,3.4vw,2.4rem);transition:color .25s ease}
+.services li:hover h3{color:var(--brass)}
 .services p{margin:0;color:#d9cbcf;max-width:48ch}
 
 /* gallery */
@@ -349,3 +349,7 @@ h2{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:1.5rem;max-width:16ch}
 @media(max-width:1000px){.services-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.service-card h3,.service-card>p{min-height:0}.service-index{margin-bottom:1.5rem}}
 @media(max-width:700px){.services-intro{display:block}.services-intro>p{margin-top:1.5rem}.services-bottom{align-items:flex-start;flex-direction:column}}
 @media(max-width:480px){.services-cards{grid-template-columns:1fr}.service-card{padding:1.5rem}.service-index{margin-bottom:.75rem}.service-card ul{margin-top:1rem}.services-intro h2{font-size:clamp(2.5rem,10vw,3.5rem)}}
+
+/* Hover servizi: nessun cambio font (evita scatti e ritardi) */
+.service-card h3{font-style:normal;transition:color .22s ease}
+.service-card:hover h3{color:#c6a27b}
