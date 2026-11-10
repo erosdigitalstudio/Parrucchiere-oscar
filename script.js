@@ -7,7 +7,7 @@
    - mappaUrl: link a Google Maps o a un'altra mappa
    ------------------------------------------------------------------ */
 const CONFIG = {
-  telefono: '',
+  telefono: '+39 045 8102216',
   whatsapp: '',
   email: '',
   indirizzo: 'Via Arnolfo di Cambio 14, 37138 Verona VR',
