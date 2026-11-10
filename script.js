@@ -17,8 +17,15 @@ const CONFIG = {
   facebook: ''
 };
 
-const GALLERY_MAX = 9; // cerca assets/gallery-1.jpg ... gallery-9.jpg
-
+/* Fotografie dimostrative di repertorio Unsplash: sostituire con lavori reali approvati dal salone. */
+const GALLERY = [
+  {src:'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80',label:'Ispirazione salone e styling'},
+  {src:'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80',label:'Ispirazione capelli e colore'},
+  {src:'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80',label:'Ispirazione taglio e piega'},
+  {src:'https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=1000&q=80',label:'Ispirazione hairstyling'},
+  {src:'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=1000&q=80',label:'Ispirazione capelli lunghi'},
+  {src:'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1000&q=80',label:'Ispirazione beauty e capelli'}
+];
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -87,40 +94,44 @@ $$('[data-img]').forEach(async el => {
   if (await probe(src)) el.style.backgroundImage = `url("${src}")`;
 });
 
-/* Gallery e lightbox */
+/* Galleria dimostrativa e lightbox accessibile */
 const grid = $('#galleryGrid');
 const lb = $('#lightbox');
 const lbImg = $('#lbImg');
 let photos = [];
 let current = 0;
-
 const showPhoto = i => {
+  if (!photos.length) return;
   current = (i + photos.length) % photos.length;
-  lbImg.src = photos[current];
-  lbImg.alt = `Gallery, immagine ${current + 1} di ${photos.length}`;
+  lbImg.src = photos[current].src;
+  lbImg.alt = photos[current].label + ' — immagine dimostrativa';
 };
-
-(async () => {
-  const checks = await Promise.all(
-    Array.from({ length: GALLERY_MAX }, (_, i) => `assets/gallery-${i + 1}.jpg`)
-      .map(async src => (await probe(src)) ? src : null)
-  );
-  photos = checks.filter(Boolean);
-  if (!photos.length) { $('#galleryEmpty').hidden = false; return; }
-  photos.forEach((src, i) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'tile';
-    b.style.backgroundImage = `url("${src}")`;
-    b.setAttribute('aria-label', `Apri l'immagine ${i + 1}`);
-    b.addEventListener('click', () => {
-      showPhoto(i);
-      if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
-    });
-    grid.appendChild(b);
+GALLERY.forEach(photo => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'tile';
+  b.setAttribute('aria-label', 'Ingrandisci: ' + photo.label + ' (foto dimostrativa)');
+  const img = document.createElement('img');
+  img.src = photo.src;
+  img.alt = photo.label;
+  img.loading = 'lazy';
+  img.decoding = 'async';
+  img.addEventListener('error', () => {
+    b.remove();
+    photos = photos.filter(p => p !== photo);
+    if (!photos.length) $('#galleryEmpty').hidden = false;
+  }, {once:true});
+  b.appendChild(img);
+  b.addEventListener('click', () => {
+    const i = photos.indexOf(photo);
+    if (i < 0) return;
+    showPhoto(i);
+    if (typeof lb.showModal === 'function') lb.showModal();
+    else lb.setAttribute('open', '');
   });
-})();
-
+  grid.appendChild(b);
+  photos.push(photo);
+});
 lb.addEventListener('click', e => {
   const act = e.target.dataset && e.target.dataset.lb;
   if (act === 'close' || e.target === lb) lb.close();
@@ -131,40 +142,6 @@ lb.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') showPhoto(current - 1);
   if (e.key === 'ArrowRight') showPhoto(current + 1);
 });
-
-/* Prenotazioni */
-const form = $('#bookingForm');
-const status = $('#formStatus');
-const dateField = $('#dateField');
-dateField.min = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  let ok = true;
-  $$('input, select, textarea', form).forEach(f => {
-    const bad = !f.checkValidity();
-    f.setAttribute('aria-invalid', String(bad));
-    if (bad) ok = false;
-  });
-  if (!ok) { status.textContent = 'Controlla i campi evidenziati e riprova.'; return; }
-
-  const d = Object.fromEntries(new FormData(form));
-  const giorno = new Date(d.data + 'T12:00:00').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
-  const msg = `Buongiorno, vorrei prenotare un appuntamento.\nNome: ${d.nome}\nServizio: ${d.servizio}\nGiorno preferito: ${giorno}\nFascia oraria: ${d.fascia}` + (d.note ? `\nNote: ${d.note}` : '');
-
-  if (CONFIG.whatsapp) {
-    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
-    status.textContent = 'Si apre WhatsApp con la richiesta pronta da inviare.';
-  } else if (CONFIG.email) {
-    window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent('Richiesta di appuntamento')}&body=${encodeURIComponent(msg)}`;
-    status.textContent = 'Si apre il tuo programma di posta con la richiesta pronta da inviare.';
-  } else {
-    status.textContent = 'La prenotazione online non è ancora attiva. Contatta direttamente il salone.';
-  }
-});
-$$('input, select, textarea', form).forEach(f =>
-  f.addEventListener('input', () => f.removeAttribute('aria-invalid')));
-
 /* Contatti */
 (() => {
   const list = $('#contactList');
