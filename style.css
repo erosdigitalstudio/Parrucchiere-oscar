@@ -148,3 +148,57 @@ h2{font-size:clamp(2.1rem,5vw,3.6rem);margin-bottom:1.5rem;max-width:16ch}
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .hero-kicker,.hero-lead,.hero-actions{opacity:1}
 }
+
+/* Modern Editorial · Peluquería España / Oscar · homepage v2 */
+:root{--ink:#29241f;--plum:#675a50;--stone:#f4efe8;--bone:#fbf8f3;--brass:#a17e55;--muted:#756b62}
+.site-header{color:var(--ink);padding-block:1.35rem;background:rgba(251,248,243,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(41,36,31,.09)}
+.site-header.solid{background:rgba(251,248,243,.97);padding-block:.85rem}
+.brand-name{font-size:clamp(1.1rem,1.8vw,1.5rem);font-style:normal;letter-spacing:-.025em}
+.brand-sub{color:#80694d;letter-spacing:.16em;font-size:.66rem;margin-top:.35rem}
+.nav{gap:clamp(.8rem,1.8vw,1.8rem)}
+.nav a{font-size:.85rem;letter-spacing:.02em}
+.hero{min-height: min(850px,100svh);background:var(--bone);color:var(--ink);align-items:center}
+.hero-inner{z-index:2;width:61%;padding:clamp(10rem,16vh,13rem) 2rem 6rem var(--pad)}
+.hero-media{width:43%;inset:6rem 0 0 auto;clip-path:none;background:linear-gradient(145deg,#b9aa98 0%,#e5d9c8 46%,#9d8a7b 100%);animation:fade 1.2s ease .15s both;position:absolute}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(251,248,243,.1),transparent 45%)}
+.hero-photo-label{position:absolute;right:2rem;bottom:2rem;z-index:1;color:#fff;letter-spacing:.3em;font-size:.65rem;font-weight:500;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.hero-kicker{font-size:.72rem;letter-spacing:.32em;color:#8c7458;margin-bottom:2.4rem}
+.hero-kicker span{margin-inline:.7rem}
+.wordmark{font-style:normal;font-weight:400;font-size:inherit;line-height:1;margin:0;letter-spacing:normal}
+.wordmark-salon{display:block;font-family:var(--serif);font-size:clamp(3.7rem,7.5vw,8rem);letter-spacing:-.055em;line-height:.96;animation:rise 1.1s var(--ease) .15s both}
+.wordmark-by{display:block;font-family:var(--sans);font-size:clamp(1.5rem,2.7vw,2.7rem);font-weight:300;letter-spacing:.01em;margin-top:1.15rem;animation:rise 1.1s var(--ease) .35s both}
+.wordmark-by em{font-family:var(--serif);font-size:1.55em;font-weight:500}
+.cut{margin:2.3rem 0 1.4rem;width:clamp(6rem,14vw,12rem)}
+.hero-lead{font-family:var(--sans);font-style:normal;font-size:clamp(1rem,1.4vw,1.16rem);line-height:1.65;max-width:36ch;color:#62574d}
+.hero-actions{margin-top:2.2rem}
+.hero .btn-solid{background:var(--ink);border-color:var(--ink);color:var(--bone)}
+.hero .btn-solid:hover{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+.hero .btn-line{border-color:#9d8b7b}
+.hero-location{position:absolute;bottom:1.4rem;left:var(--pad);font-size:.75rem;letter-spacing:.1em;color:#82766a;margin:0}
+.hero-location span{padding-inline:.4rem}
+@media(max-width:900px){
+ .nav-toggle span{background:var(--ink)}
+ .nav-open .nav{background:var(--bone)}
+ .nav-open .site-header{background:var(--bone)}
+ .hero{min-height:100svh;align-items:flex-end}
+ .hero-media{inset:5.5rem 0 auto auto;width:100%;height:36%;opacity:.9;clip-path:none}
+ .hero-inner{width:100%;padding:calc(36vh + 7rem) var(--pad) 5.8rem}
+ .wordmark-salon{font-size:clamp(3.4rem,10vw,6.5rem)}
+ .hero-kicker{margin-bottom:1.3rem}
+ .hero-photo-label{right:1.25rem;bottom:1.1rem}
+ .hero-location{bottom:1.2rem}
+}
+@media(max-width:520px){
+ .site-header{padding-block:.8rem}
+ .brand-name{font-size:1.2rem}
+ .brand-sub{font-size:.58rem}
+ .hero-media{height:31%;top:4.7rem}
+ .hero-inner{padding-top:calc(31vh + 5rem);padding-bottom:4.5rem}
+ .wordmark-salon{font-size:clamp(3.05rem,12vw,4.5rem)}
+ .wordmark-by{margin-top:.6rem}
+ .cut{margin:1.25rem 0 1rem}
+ .hero-lead{font-size:.98rem}
+ .hero-actions{gap:.65rem;margin-top:1.25rem}
+ .hero-actions .btn{padding:.8rem 1rem}
+ .hero-location{font-size:.65rem}
+}
